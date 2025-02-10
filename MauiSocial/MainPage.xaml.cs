@@ -1,24 +1,27 @@
-﻿namespace MauiSocial
+﻿using MauiSocial.Views;
+
+namespace MauiSocial
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
 
         public MainPage()
         {
             InitializeComponent();
         }
-
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void Btn_ProfilePage_Clicked(object sender, EventArgs e)
         {
-            count++;
+            await Navigation.PushAsync(new ProfilePage());
+        }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+        private async void Btn_PostPage_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PostPage());
+        }
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        private async void Btn_CommentPage_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new FlexLayoutPage());
         }
     }
 
