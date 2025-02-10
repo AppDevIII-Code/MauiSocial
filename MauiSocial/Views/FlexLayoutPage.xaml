@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiSocial.Views.FlexLayoutPage"
+             Title="FlexLayoutPage">
+    <ScrollView>
+        <FlexLayout Wrap="Wrap" Direction="Row" AlignContent="Start" JustifyContent="Start">
+            <Image Source="https://picsum.photos/202/202.jpg" Aspect="AspectFill" HeightRequest="100" WidthRequest="100"/>
+            <Image Source="https://picsum.photos/203/203.jpg" Aspect="AspectFill" HeightRequest="100" WidthRequest="100"/>
+            <Image Source="https://picsum.photos/204/204.jpg" Aspect="AspectFill" HeightRequest="100" WidthRequest="100"/>
+            <Image Source="https://picsum.photos/205/205.jpg" Aspect="AspectFill" HeightRequest="100" WidthRequest="100"/>
+            <Image Source="https://picsum.photos/206/206.jpg" Aspect="AspectFill" HeightRequest="100" WidthRequest="100"/>
+            <Image Source="https://picsum.photos/207/207.jpg" Aspect="AspectFill" HeightRequest="100" WidthRequest="100"/>
+            <Image Source="https://picsum.photos/208/208.jpg" Aspect="AspectFill" HeightRequest="100" WidthRequest="100"/>
+        </FlexLayout>                                            
+    </ScrollView>
+</ContentPage>  
