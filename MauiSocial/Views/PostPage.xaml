@@ -9,18 +9,24 @@
             <Label Text=".NET Bot"/>
         </HorizontalStackLayout>
         <Image Source="dotnet_bot.png"/>
-        <Label x:Name="LikesLabel" Text="0 Like"/>
+        <Label x:Name="LikesLabel" Text="{Binding Likes, StringFormat='{0:F0}'}"/>
         <Border HeightRequest="3" BackgroundColor="Gray"/>
         <HorizontalStackLayout HeightRequest="45" Spacing="15" Padding="5">
             <ImageButton WidthRequest="30" Source="like.png" Clicked="Btn_Like_Clicked"/>
             <ImageButton WidthRequest="30" Source="comment.png" Clicked="Btn_Comment_Clicked"/>
             <ImageButton WidthRequest="30" Source="share.png" Clicked="Btn_Share_Clicked"/>
         </HorizontalStackLayout>
-        <HorizontalStackLayout HeightRequest="50" Padding="5">
-            <Image Source="dog.png"/>
-            <Border BackgroundColor="LightGray" StrokeShape="RoundRectangle 10,10,10,10" Padding="5">
-                <Label Text="Cool, nice car." VerticalOptions="Center"/>
-            </Border>
-        </HorizontalStackLayout>
+        <CollectionView ItemsSource="{Binding Comments}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <HorizontalStackLayout HeightRequest="50" Padding="5">
+                        <Image Source="dog.png"/>
+                        <Border BackgroundColor="LightGray" StrokeShape="RoundRectangle 10,10,10,10" Padding="5">
+                            <Label Text="{Binding .}" VerticalOptions="Center"/>
+                        </Border>
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
 </ContentPage>

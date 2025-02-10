@@ -4,14 +4,19 @@
              x:Class="MauiSocial.Views.FlexLayoutPage"
              Title="FlexLayoutPage">
     <ScrollView>
-        <FlexLayout Wrap="Wrap" Direction="Row" AlignContent="Start" JustifyContent="Start">
-            <Image Source="https://picsum.photos/202/202.jpg" Aspect="AspectFill" HeightRequest="100" WidthRequest="100"/>
-            <Image Source="https://picsum.photos/203/203.jpg" Aspect="AspectFill" HeightRequest="100" WidthRequest="100"/>
-            <Image Source="https://picsum.photos/204/204.jpg" Aspect="AspectFill" HeightRequest="100" WidthRequest="100"/>
-            <Image Source="https://picsum.photos/205/205.jpg" Aspect="AspectFill" HeightRequest="100" WidthRequest="100"/>
-            <Image Source="https://picsum.photos/206/206.jpg" Aspect="AspectFill" HeightRequest="100" WidthRequest="100"/>
-            <Image Source="https://picsum.photos/207/207.jpg" Aspect="AspectFill" HeightRequest="100" WidthRequest="100"/>
-            <Image Source="https://picsum.photos/208/208.jpg" Aspect="AspectFill" HeightRequest="100" WidthRequest="100"/>
-        </FlexLayout>                                            
+        <VerticalStackLayout>
+            <Button Text="Add Image" Clicked="Btn_AddImage_Clicked"/>
+            <FlexLayout Wrap="Wrap" 
+                        Direction="Row" 
+                        AlignContent="Start" 
+                        JustifyContent="Start"
+                        BindableLayout.ItemsSource="{Binding ImgUrls}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding .}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100"/>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>  
