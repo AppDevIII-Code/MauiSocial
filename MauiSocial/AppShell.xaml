@@ -4,12 +4,12 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MauiSocial"
-    Shell.FlyoutBehavior="Disabled"
+    xmlns:views="clr-namespace:MauiSocial.Views"
     Title="MauiSocial">
-
     <ShellContent
         Title="Home"
+         Icon="home.png"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
-
+    
 </Shell>
