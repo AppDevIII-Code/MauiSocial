@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiSocial.Views.FlexLayoutPage"
+             xmlns:local="clr-namespace:MauiSocial"
+             xmlns:repos="clr-namespace:MauiSocial.DataRepos"
+             Title="FlexLayoutPage">
+    <ScrollView>
+        <VerticalStackLayout>
+            
+            <FlexLayout Wrap="Wrap" 
+                        Direction="Row" 
+                        AlignContent="Start" 
+                        JustifyContent="Start"
+                        BindableLayout.ItemsSource="{Binding Source={x:Static repos:PostsRepo.ImgPosts}}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding .}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100"/>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>  

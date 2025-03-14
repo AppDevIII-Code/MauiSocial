@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MauiSocial.Views.VideosPage"
+             xmlns:repos="clr-namespace:MauiSocial.DataRepos"
+             Title="VideosPage">
+    <CollectionView ItemsSource="{Binding Source={x:Static repos:PostsRepo.VideoPosts}}">
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <VerticalStackLayout Padding="0,10" Spacing="5">
+                    <toolkit:MediaElement 
+                    WidthRequest="400" 
+                    HeightRequest="600"
+                    Aspect="AspectFill"
+                    ShouldAutoPlay="False"
+                    Source="{Binding ContentUri}"/>
+                    <Label Margin="2" Text="{Binding Likes, StringFormat='{0} Likes'}"/>
+                    <HorizontalStackLayout Padding="2"  Spacing="5"  HeightRequest="50">
+                        <ImageButton Source="{AppThemeBinding Light=like.png, Dark=like_dark.png}" BackgroundColor="Transparent" WidthRequest="25"/>
+                        <ImageButton Source="{AppThemeBinding Light=comment.png, Dark=comment_dark.png}" BackgroundColor="Transparent" WidthRequest="25" />
+                        <ImageButton Source="{AppThemeBinding Light=share.png, Dark=share_dark.png}" BackgroundColor="Transparent" WidthRequest="25"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+    
+</ContentPage>
