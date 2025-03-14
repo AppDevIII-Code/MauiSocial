@@ -2,12 +2,11 @@ using System.Collections.ObjectModel;
 
 namespace MauiSocial.Views;
 
-public partial class ProfilePage : ContentPage
+public partial class VideosPage : ContentPage
 {
-    public ProfilePage()
+    public VideosPage()
 	{
 		InitializeComponent();
-        
 	}
 
 
