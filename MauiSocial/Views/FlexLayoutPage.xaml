@@ -2,15 +2,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiSocial.Views.FlexLayoutPage"
+             xmlns:local="clr-namespace:MauiSocial"
+             xmlns:repos="clr-namespace:MauiSocial.DataRepos"
              Title="FlexLayoutPage">
     <ScrollView>
         <VerticalStackLayout>
-            <Button Text="Add Image" Clicked="Btn_AddImage_Clicked"/>
+            
             <FlexLayout Wrap="Wrap" 
                         Direction="Row" 
                         AlignContent="Start" 
                         JustifyContent="Start"
-                        BindableLayout.ItemsSource="{Binding ImgUrls}">
+                        BindableLayout.ItemsSource="{Binding Source={x:Static repos:PostsRepo.ImgPosts}}">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
                         <Image Source="{Binding .}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100"/>

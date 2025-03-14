@@ -1,54 +1,30 @@
+using MauiSocial.Models;
 using System.Collections.ObjectModel;
 
 namespace MauiSocial.Views;
 
 public partial class PostPage : ContentPage
 {
-    int likes = 0;
-    public int Likes
-    {
-        get => likes;
-        set
-        {
-            if (likes != value)
-            {
-                likes = value;
-                OnPropertyChanged();
-            }
+    public Post Post {get;set;}
 
-        }
-    }
-    public ObservableCollection<string> Comments { get; set; } = new ObservableCollection<string>() { "Cool car", "haha", "lool" } ;
-    //List<string> comments = new List<string>() { "Cool car", "haha", "lool"};
-
-    //public List<string> Comments
-    //{
-    //    get => comments;
-    //    set
-    //    {
-    //        if (comments != value)
-    //        {
-    //            comments = value;
-    //            OnPropertyChanged();
-    //        }
-    //    }
-    //}
-    public PostPage()
+    public PostPage(Post post)
 	{
 		InitializeComponent();
-        BindingContext = this;
+        Post = post;
+        BindingContext = Post;
 
 	}
     private void Btn_Like_Clicked(object sender, EventArgs e)
     {
-        Likes++;
-        //LikesLabel.Text = $"{++likes} Likes";
+        Post.Likes++;
     }
 
     private async void Btn_Comment_Clicked(object sender, EventArgs e)
     {
         var comment = await DisplayPromptAsync("Comment", "", "Send", "", "Add a comment");
-        Comments.Add(comment);
+        if (string.IsNullOrEmpty(comment))
+            return;
+        Post.Comments.Add(new Comment("DotNet Bot",comment));
 
     }
 
