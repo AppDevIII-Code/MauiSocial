@@ -5,11 +5,54 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MauiSocial"
     xmlns:views="clr-namespace:MauiSocial.Views"
+    Shell.FlyoutBehavior="Flyout"
     Title="MauiSocial">
+    <FlyoutItem Title="Home" Icon="home.png">
+        <ShellContent
+            Title="Home"
+             Icon="home.png"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage" />
+        <ShellContent
+            Title="Search"
+            Icon="search.png"
+            ContentTemplate="{DataTemplate views:SearchPage}"/>
+        <Tab Icon="more.png" Title="New Post">
+            <ShellContent
+            Title="Select photos"
+            Icon="select.png"
+            ContentTemplate="{DataTemplate views:FilePage}"/>
+            <ShellContent
+            Title="Camera"
+            Icon="camera.png"
+            ContentTemplate="{DataTemplate views:NewPostPage}"/>
+        </Tab>
+
+        <ShellContent
+            Title="Videos"
+            Icon="video.png"
+            ContentTemplate="{DataTemplate views:VideosPage}"/>
+        <ShellContent
+            Title="Profile"
+            Icon="user.png"
+            ContentTemplate="{DataTemplate views:ProfilePage}"/>
+
+    </FlyoutItem>
     <ShellContent
-        Title="Home"
-         Icon="home.png"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-    
+        Title="Info"
+        Icon ="info.png"
+        ContentTemplate="{DataTemplate views:Info}"/>
+
+    <ShellContent
+        Title="Groups"
+        Icon="group.png"
+        ContentTemplate="{DataTemplate views:Groups}"/>
+
+    <ShellContent
+        Title="Settings"
+        Icon ="setting.png"
+        ContentTemplate="{DataTemplate views:Settings}"/>
+
+
+
 </Shell>
